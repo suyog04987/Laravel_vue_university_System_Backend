@@ -24,5 +24,10 @@ class University extends Model
     public function courses(){
         return $this->hasMany(Courses::class, 'universities_id', 'id');
     }
+
+    public function materials(){
+        return $this->hasMany(Material::class,'universities_id', 'id');
+    }
+
     ///rhsihfshdfsdhfoi
 }

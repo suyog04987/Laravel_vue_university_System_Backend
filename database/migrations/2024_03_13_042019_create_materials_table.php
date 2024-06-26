@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('materials', function (Blueprint $table) {
             $table->id();
-            $table->string('note');
-            $table->string('syllabus');
-            $table->string('solution');
+            $table->string('note')->nullable();
+            $table->string('syllabus')->nullable();
+            $table->string('solution')->nullable();
             $table->unsignedBigInteger('courses_id');
-            $table->foreign('courses_id')->references('id')->on('courses');
+            $table->foreign('courses_id')->references('id')->on('courses')->cascadeOnDelete();
             $table->unsignedBigInteger('semesters_id');
-            $table->foreign('semesters_id')->references('id')->on('semesters');
+            $table->foreign('semesters_id')->references('id')->on('semesters')->cascadeOnDelete();
             $table->unsignedBigInteger('universities_id');
-            $table->foreign('universities_id')->references('id')->on('universities');
+            $table->foreign('universities_id')->references('id')->on('universities')->cascadeOnDelete();
             $table->unsignedBigInteger('faculties_id');
-            $table->foreign('faculties_id')->references('id')->on('faculties');
+            $table->foreign('faculties_id')->references('id')->on('faculties')->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@ class UniversityController extends Controller
 {
     
     public function index(){
-        $data= University::with(['faculty.semester.course'])->get();
+        $data= University::with(['faculty.semester.course.material'])->get();
        return response()->json($data);
     }
 

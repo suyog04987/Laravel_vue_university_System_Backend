@@ -15,7 +15,7 @@ class Courses extends Model
     }
 
     public function material(){
-        return $this->hasMany(Material::class);
+        return $this->hasMany(Material::class, 'courses_id', 'id');
     }
 
     public function university()
