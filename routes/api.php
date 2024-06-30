@@ -30,6 +30,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 
 Route::get('/university', [UniversityController::class, 'index']);
+Route::get('/paginatedData', [UniversityController::class, 'paginatedData']);
 Route::post('/universityUpdate/{id}',[UniversityController::class, 'update']);
 Route::delete('/universityDelete/{id}',[UniversityController::class, 'delete']);
 

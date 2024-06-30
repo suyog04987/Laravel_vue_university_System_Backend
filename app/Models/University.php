@@ -9,7 +9,7 @@ class University extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'details', 'address', 'image_url'];
+    protected $fillable = ['name', 'details', 'address', 'image_url' ,'rank', 'enrollment_number'];
         
     
 

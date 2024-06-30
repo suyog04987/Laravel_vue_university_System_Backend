@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class UniversityController extends Controller
 {
+    public function paginatedData(){
+        $data= University::with(['faculty.semester.course.material'])->paginate(4);
+        return response()->json($data);
+    }
     
     public function index(){
         $data= University::with(['faculty.semester.course.material'])->get();
@@ -20,6 +24,8 @@ class UniversityController extends Controller
                 'details' =>'required',
                 'address' => 'required',
                 'image_url' => 'required',
+                'rank' => 'required',
+                'enrollment_number' => 'required',
             ]);
             
             University::create($validated);
@@ -54,6 +60,8 @@ class UniversityController extends Controller
             'details' => 'required',
             'address' => 'required',
             'image_url' => 'required',
+            'rank' => 'required',
+            'enrollment_number' => 'required',
         ]);
     
         $data->update($validated);
