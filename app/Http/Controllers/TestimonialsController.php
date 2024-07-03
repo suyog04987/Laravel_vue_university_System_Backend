@@ -48,7 +48,6 @@ public function update(Request $request, $id)
             'name' => ['required', 'max:255'],
             'position' => 'required',
             'content' => 'required',
-            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048', // Example validation for image
         ]);
 
         $data = Testimonials::findOrFail($id);
@@ -57,7 +56,7 @@ public function update(Request $request, $id)
             $file = $request->file('image');
             $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
             $path = $file->storeAs('images', $filename, 'public');
-            $validated['image'] = $filename;
+            $data->image = $filename;
         }
 
         $data->update($validated);

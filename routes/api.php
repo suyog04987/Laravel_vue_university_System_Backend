@@ -4,9 +4,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\CourcesController;
 use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SemesterController;
+use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\TestimonialsController;
 use App\Http\Controllers\UniversityController;
 use App\Models\Faculty;
@@ -84,3 +86,16 @@ Route::get('/paginatedCollegeData', [CollegeController::class, 'paginateData']);
 Route::post('/college/add', [CollegeController::class, 'store']);
 Route::post('/collegeUpdate/{id}',[CollegeController::class,'update']);
 Route::delete('/collegeDelete/{id}',[CollegeController::class,'delete']);
+
+//TeamMembers
+
+Route::get('/teamMembers', [TeamMemberController::class, 'index']);
+Route::post('/teamMembers/add', [TeamMemberController::class, 'store']);
+Route::post('/teamMembersUpdate/{id}',[TeamMemberController::class,'update']);
+Route::delete('/teamMembersDelete/{id}',[TeamMemberController::class,'delete']);
+
+//feedback
+
+Route::get('/feedback', [FeedbackController::class, 'index']);
+Route::post('/submitFeedback', [FeedbackController::class, 'store']);
+Route::delete('/feedbackDelete/{id}',[FeedbackController::class,'delete']);
