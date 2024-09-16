@@ -72,9 +72,6 @@ class MaterialController extends Controller
     {
         try {
             $validation = $request->validate([
-                'note' => 'file|mimes:jpeg,png,jpg,pdf,docx|max:10240',
-                'syllabus' => 'file|mimes:jpeg,png,jpg,pdf,docx|max:10240',
-                'solution' => 'file|mimes:jpeg,png,jpg,pdf,docx|max:10240',
                 'courses_id' => 'required',
                 'semesters_id' => 'required',
                 'universities_id' => 'required',

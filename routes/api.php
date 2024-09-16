@@ -5,6 +5,7 @@ use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\CourcesController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SemesterController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\TestimonialsController;
 use App\Http\Controllers\UniversityController;
 use App\Models\Faculty;
+use GuzzleHttp\Psr7\Rfc7230;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -99,3 +101,9 @@ Route::delete('/teamMembersDelete/{id}',[TeamMemberController::class,'delete']);
 Route::get('/feedback', [FeedbackController::class, 'index']);
 Route::post('/submitFeedback', [FeedbackController::class, 'store']);
 Route::delete('/feedbackDelete/{id}',[FeedbackController::class,'delete']);
+
+
+
+//front end routes
+Route::get('/getCourses', [FrontendController::class, 'getCourses']);
+Route::get('/getFaculty',[FrontendController::class,'getFaculty']);

@@ -20,8 +20,15 @@ class FacultyController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'max:255'],
             'universities_id' => 'required',
+            'syllabus' => 'file|mimes:jpeg,png,jpg,pdf,docx|max:10240',
         ]);
-
+        
+        if ($request->hasFile('syllabus')) {
+            $file = $request->file('syllabus');
+            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('files', $filename, 'public');
+            $validated['syllabus'] = $filename;
+        }
         Faculty::create($validated);
 
         return response()->json(['message' => 'Faculty Added successfully'], 200);
@@ -41,6 +48,13 @@ class FacultyController extends Controller
             'name' => ['required', 'max:255'],
             'universities_id' => 'required',
         ]);
+
+        if ($request->hasFile('syllabus')) {
+            $file = $request->file('syllabus');
+            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('files', $filename, 'public');
+            $validated['syllabus'] = $filename;
+        }
     
         $data->update($validated);
     

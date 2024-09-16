@@ -32,4 +32,11 @@ class Faculty extends Model
         return $this->hasMany(Courses::class, 'faculties_id' ,'id');
         
     }
+
+    protected $appends = ['syllabusUrl'];
+
+    public function getSyllabusUrlAttribute()
+    {
+        return asset('storage/files/' . $this->syllabus);
+    }
 }

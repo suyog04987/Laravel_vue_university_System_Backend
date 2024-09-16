@@ -11,7 +11,7 @@ class Courses extends Model
 
     protected $guarded = [];
     public function semester(){
-        return $this->belongsTo(Semester::class, 'faculties_id');
+        return $this->belongsTo(Semester::class, 'semesters_id', 'id');
     }
 
     public function material(){
@@ -21,5 +21,10 @@ class Courses extends Model
     public function university()
     {
         return $this->belongsTo(University::class);
+    }
+
+    //get faculty name
+    public function faculty(){
+        return $this->belongsTo(Faculty::class, 'faculties_id', 'id');
     }
 }
