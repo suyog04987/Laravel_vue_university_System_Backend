@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\CourcesController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\FrontendController;
@@ -101,6 +102,8 @@ Route::delete('/teamMembersDelete/{id}',[TeamMemberController::class,'delete']);
 Route::get('/feedback', [FeedbackController::class, 'index']);
 Route::post('/submitFeedback', [FeedbackController::class, 'store']);
 Route::delete('/feedbackDelete/{id}',[FeedbackController::class,'delete']);
+
+Route::get('dashboard/card', [DashboardController::class, 'cardData']);
 
 
 
