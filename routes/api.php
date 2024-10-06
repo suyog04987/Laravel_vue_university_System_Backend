@@ -107,3 +107,5 @@ Route::delete('/feedbackDelete/{id}',[FeedbackController::class,'delete']);
 //front end routes
 Route::get('/getCourses', [FrontendController::class, 'getCourses']);
 Route::get('/getFaculty',[FrontendController::class,'getFaculty']);
+
+Route::post('/postRecommendation',[FrontendController::class,'postRecommendation']);
